@@ -83,12 +83,7 @@ namespace tpublic
 			}
 			else if (aSource->m_name == "must_have_ability_modifier")
 			{
-				m_mustHaveAbilityModifierIds.push_back(aSource->GetId(DataType::ID_ABILITY_MODIFIER));
-				return true;
-			}
-			else if (aSource->m_name == "must_have_ability_modifiers")
-			{
-				aSource->GetIdArray(DataType::ID_ABILITY_MODIFIER, m_mustHaveAbilityModifierIds);
+				m_mustHaveAbilityModifierId = aSource->GetId(DataType::ID_ABILITY_MODIFIER);
 				return true;
 			}
 			else if (aSource->m_name == "must_not_have_ability_modifiers")
@@ -106,9 +101,9 @@ namespace tpublic
 		{
 			aStream->WriteUInt(m_flags);
 			aStream->WriteUInt(m_probability);
+			aStream->WriteUInt(m_mustHaveAbilityModifierId);
 			aStream->WriteUInts(m_mustNotHaveAbilityModifierIds);
 			aStream->WriteObjects(m_requirements);
-			aStream->WriteUInts(m_mustHaveAbilityModifierIds);
 		}
 		
 		bool	
@@ -119,13 +114,12 @@ namespace tpublic
 				return false;
 			if (!aStream->ReadUInt(m_probability))
 				return false;
+			if (!aStream->ReadUInt(m_mustHaveAbilityModifierId))
+				return false;
 			if (!aStream->ReadUInts(m_mustNotHaveAbilityModifierIds))
 				return false;
 			if(!aStream->ReadObjects(m_requirements))
 				return false;
-			if (!aStream->ReadUInts(m_mustHaveAbilityModifierIds))
-				return false;
-
 			return true;
 		}
 
@@ -160,7 +154,6 @@ namespace tpublic
 									const EntityInstance*				/*aEntityInstance*/,
 									const AbilityModifierList*			/*aAbilityModifierList*/,
 									uint32_t							/*aAbilityId*/,
-									const IWorldView*					/*aWorldView*/,
 									UIntRange&							/*aOutDamage*/,
 									DirectEffect::DamageType&			/*aOutDamageType*/) const { return false; }
 		virtual bool			CalculateToolTipHeal(
@@ -168,7 +161,6 @@ namespace tpublic
 									const EntityInstance*				/*aEntityInstance*/,
 									const AbilityModifierList*			/*aAbilityModifierList*/,
 									uint32_t							/*aAbilityId*/,
-									const IWorldView*					/*aWorldView*/,
 									UIntRange&							/*aOutHeal*/) const { return false; }
 		virtual uint32_t		GetToolTipItemId(
 									const Manifest*						/*aManifest*/) const { return 0; }
@@ -178,7 +170,7 @@ namespace tpublic
 		// Public data
 		uint32_t					m_flags = 0;		
 		std::vector<Requirement>	m_requirements;
-		std::vector<uint32_t>		m_mustHaveAbilityModifierIds;
+		uint32_t					m_mustHaveAbilityModifierId = 0;
 		std::vector<uint32_t>		m_mustNotHaveAbilityModifierIds;
 		uint32_t					m_probability = 0;
 	};

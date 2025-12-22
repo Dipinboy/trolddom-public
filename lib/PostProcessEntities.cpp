@@ -26,7 +26,7 @@ namespace tpublic
 		{
 			const NPCMetrics& npcMetrics = *aManifest->m_npcMetrics;
 
-			Components::CombatPublic* combatPublic = aEntity->TryGetComponent<Components::CombatPublic>();
+			const Components::CombatPublic* combatPublic = aEntity->TryGetComponent<Components::CombatPublic>();
 			Components::NPC* npc = aEntity->TryGetComponent<Components::NPC>();
 			Components::CombatPrivate* combatPrivate = aEntity->TryGetComponent<Components::CombatPrivate>();
 

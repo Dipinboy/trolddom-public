@@ -19,9 +19,6 @@ namespace tpublic
 		size_t		Read(
 						void*				aBuffer,
 						size_t				aBufferSize) override;
-		size_t		Peek(
-						void*				aBuffer,
-						size_t				aBufferSize) const override;
 
 	private:
 

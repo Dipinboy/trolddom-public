@@ -206,8 +206,6 @@ namespace tpublic
 				m_spriteIndex = 0;
 				m_chats.clear();
 				m_unlockMapTriggerids.clear();
-
-				m_ownerEntityInstanceId = 0;
 			}
 
 			// Public data
@@ -235,9 +233,6 @@ namespace tpublic
 			uint32_t					m_spriteIndex = 0;
 			std::vector<Chat>			m_chats;
 			std::vector<uint32_t>		m_unlockMapTriggerids;
-
-			// Server only
-			uint32_t					m_ownerEntityInstanceId = 0;
 		};
 
 	}

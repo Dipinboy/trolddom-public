@@ -21,7 +21,7 @@ namespace tpublic
 		void		Process(
 						const NPCMetrics*				aNPCMetrics,
 						const Data::Entity::Modifiers&	aModifiers,
-						Components::CombatPublic*		aCombatPublic,
+						const Components::CombatPublic*	aCombatPublic,
 						Components::CombatPrivate*		aCombatPrivate,
 						Components::MinionPrivate*		aMinionPrivate,
 						Components::NPC*				aNPC,

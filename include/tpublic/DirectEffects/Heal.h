@@ -93,7 +93,6 @@ namespace tpublic
 								const EntityInstance*				aEntityInstance,
 								const AbilityModifierList*			aAbilityModifierList,
 								uint32_t							aAbilityId,
-								const IWorldView*					aWorldView,
 								UIntRange&							aOutHeal) const override;
 
 			// Public data
