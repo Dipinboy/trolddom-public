@@ -148,7 +148,8 @@ namespace tpublic
 									IResourceChangeQueue*				/*aCombatResultQueue*/,
 									IAuraEventQueue*					/*aAuraEventQueue*/,
 									IEventQueue*						/*aEventQueue*/,
-									const IWorldView*					/*aWorldView*/) { return Result(); }
+									const IWorldView*					/*aWorldView*/,
+									bool								/*aOffHand*/) { return Result(); }
 		virtual bool			CalculateToolTipDamage(
 									const Manifest*						/*aManifest*/,
 									const EntityInstance*				/*aEntityInstance*/,

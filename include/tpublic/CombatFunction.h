@@ -303,25 +303,29 @@ namespace tpublic
 						RandomSource						aRandomSource,
 						float								aMultiplier,
 						const Components::CombatPublic*		aCombatPublic,
-						const Components::CombatPrivate*	aCombatPrivate) const;
+						const Components::CombatPrivate*	aCombatPrivate,
+						bool								aIsOffHandAttack) const;
 		float		EvaluateEntityInstance(
 						const Manifest*						aManifest,
 						const IWorldView*					aWorldView,
 						RandomSource						aRandomSource,
 						float								aMultiplier,
-						const EntityInstance*				aEntityInstance) const;
+						const EntityInstance*				aEntityInstance,
+						bool								aIsOffHandAttack) const;
 		float		EvaluateSourceAndTargetEntityInstances(
 						const Manifest*						aManifest,
 						const IWorldView*					aWorldView,
 						RandomSource						aRandomSource,
 						float								aMultiplier,
 						const EntityInstance*				aSourceEntityInstance,
-						const EntityInstance*				aTargetEntityInstance) const;
+						const EntityInstance*				aTargetEntityInstance,
+						bool								aIsOffHandAttack) const;
 		void		ToRange(
 						const Manifest*						aManifest,
 						const IWorldView*					aWorldView,
 						float								aMultiplier,
 						const EntityInstance*				aEntityInstance,
+						bool								aIsOffHandAttack,
 						UIntRange&							aOut) const;
 	
 		// Public data
